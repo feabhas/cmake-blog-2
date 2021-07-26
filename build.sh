@@ -41,7 +41,7 @@ for arg; do
   esac
 done
 
-[[ -d $BUILD_DIR ]] && rm -rf $BUILD_DIR
+[[ -n $RESET && -d $BUILD_DIR ]] && rm -rf $BUILD_DIR
     
 $CMAKE -S . -B $BUILD_DIR --warn-uninitialized -DCMAKE_BUILD_TYPE=$TYPE -DCMAKE_TOOLCHAIN_FILE=toolchain-STM32F407.cmake
 
