@@ -18,18 +18,6 @@ set(TOOLCHAIN_as ${TOOLCHAIN}/arm-none-eabi-as CACHE STRING "arm-none-eabi-as")
 set(TOOLCHAIN_LD ${TOOLCHAIN}/arm-none-eabi-ld CACHE STRING "arm-none-eabi-ld")
 set(TOOLCHAIN_SIZE ${TOOLCHAIN}/arm-none-eabi-size CACHE STRING "arm-none-eabi-size")
 
-# we need to get compiler path itself, for the toolchain
-# but still rely on try_compile to check we have a valid compiler
-
-find_program(CROSS_GCC_PATH arm-none-eabi-gcc)
-get_filename_component(TOOLCHAIN ${CROSS_GCC_PATH} PATH)
-
-set(CMAKE_C_COMPILER ${TOOLCHAIN}/arm-none-eabi-gcc)
-set(CMAKE_Cxx_COMPILER ${TOOLCHAIN}/arm-none-eabi-g++)
-set(TOOLCHAIN_as ${TOOLCHAIN}/arm-none-eabi-as CACHE STRING "arm-none-eabi-as")
-set(TOOLCHAIN_LD ${TOOLCHAIN}/arm-none-eabi-ld CACHE STRING "arm-none-eabi-ld")
-set(TOOLCHAIN_SIZE ${TOOLCHAIN}/arm-none-eabi-size CACHE STRING "arm-none-eabi-size")
-
 # --specs=nano.specs is both a compiler and linker option
 set(ARM_OPTIONS -mcpu=cortex-m4 -mfloat-abi=soft --specs=nano.specs)
 
