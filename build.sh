@@ -47,4 +47,4 @@ $CMAKE -S . -B $BUILD_DIR --warn-uninitialized -DCMAKE_BUILD_TYPE=$TYPE -DCMAKE_
 
 [[ -n $CLEAN ]] && $CMAKE --build $BUILD_DIR --target clean
 
-$CMAKE --build $BUILD_DIR -- $VERBOSE
+$CMAKE --build $BUILD_DIR --no-print-directory -- $VERBOSE
